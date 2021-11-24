@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 class ContactPage extends StatefulWidget {
   const ContactPage({Key? key}) : super(key: key);
 
@@ -10,7 +11,9 @@ class _ContactPageState extends State<ContactPage> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Center(child: Text("Contacts"),),
+      child: Center(
+        child: Text("Contacts"),
+      ),
     );
   }
 }
