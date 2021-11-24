@@ -8,6 +8,7 @@ import 'package:msg_snd/pages/messages_page.dart';
 import 'package:msg_snd/pages/notification_page.dart';
 import 'package:msg_snd/theme.dart';
 import 'package:msg_snd/widgets/avatar.dart';
+import 'package:msg_snd/widgets/glowing_button.dart';
 import 'package:msg_snd/widgets/icon_button.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -63,6 +64,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           IconButton(
               onPressed: () {
+                MyTheme().switchTheme();
                 setState(() {
                   isLight = !isLight;
                 });
@@ -121,7 +123,8 @@ class _BottomNavigationBarState extends State<_BottomNavigationBar> {
             mainAxisSize: MainAxisSize.min,
             children: [
               Padding(
-                padding: const EdgeInsets.only(top: 16, left: 5, right: 5),
+                padding: const EdgeInsets.only(
+                    top: 16, left: 5, right: 5, bottom: 8),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -139,6 +142,15 @@ class _BottomNavigationBarState extends State<_BottomNavigationBar> {
                         isSelected: (selectedIdx == 1),
                         label: "Notification",
                         icon: CupertinoIcons.bell_solid),
+                    Padding(
+                      padding: const EdgeInsets.only(
+                          left: 11.0, right: 11.0, bottom: 1),
+                      child: GlowingActionButton(
+                          icon: CupertinoIcons.plus,
+                          color: Colors.blue,
+                          size: 53,
+                          onPressed: () {}),
+                    ),
                     NavigationBarItem(
                         index: 2,
                         onTap: handleSelected,
@@ -183,6 +195,7 @@ class NavigationBarItem extends StatelessWidget {
       },
       child: SizedBox(
         height: 50,
+        width: 60,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [

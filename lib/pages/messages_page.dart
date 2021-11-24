@@ -4,6 +4,7 @@ import 'package:jiffy/jiffy.dart';
 import 'package:msg_snd/helpers.dart';
 import 'package:msg_snd/models/message_data.dart';
 import 'package:msg_snd/models/story_data.dart';
+import 'package:msg_snd/screens/chat_screen.dart';
 import 'package:msg_snd/theme.dart';
 import 'package:msg_snd/widgets/avatar.dart';
 
@@ -138,89 +139,99 @@ class MessageTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 5.0, bottom: 7.0),
-      child: Container(
-        height: 70,
-        child: Row(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: AvatarImg(url: Helpers.getRandomURL(), radious: 30),
-            ),
-            SizedBox(
-              width: 4,
-            ),
-            Expanded(
-              child: Column(
-                children: [
-                  Expanded(
-                      child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        messageData.senderName,
-                        style: TextStyle(
-                          fontWeight: FontWeight.w700,
-                          fontSize: 15,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 5,
-                      ),
-                      Text(
-                        messageData.message,
-                        style: TextStyle(
-                          fontWeight: FontWeight.w400,
-                          fontSize: 12,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                      ),
-                    ],
-                  )),
-                ],
+    return InkWell(
+      onTap: () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => ChatScreen(
+                      messageData: messageData,
+                    )));
+      },
+      child: Padding(
+        padding: const EdgeInsets.only(top: 5.0, bottom: 7.0),
+        child: Container(
+          height: 84,
+          child: Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: AvatarImg(url: Helpers.getRandomURL(), radious: 27),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(right: 13.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SizedBox(
-                    height: 9,
-                  ),
-                  Text(
-                    messageData.dateMessege.toUpperCase(),
-                    style: TextStyle(
-                        fontSize: 13,
-                        letterSpacing: -0.2,
-                        fontWeight: FontWeight.w600,
-                        color: AppColors.textFaded),
-                  ),
-                  SizedBox(
-                    height: 7,
-                  ),
-                  Container(
-                    alignment: Alignment.center,
-                    height: 23,
-                    width: 23,
-                    decoration: BoxDecoration(
-                      color: AppColors.secondary,
-                      shape: BoxShape.circle,
-                    ),
-                    child: Text(
-                      "2",
-                      style:
-                          TextStyle(fontSize: 10, color: AppColors.textLight),
-                    ),
-                  ),
-                ],
+              SizedBox(
+                width: 8,
               ),
-            ),
-          ],
+              Expanded(
+                child: Column(
+                  children: [
+                    Expanded(
+                        child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          messageData.senderName,
+                          style: TextStyle(
+                            fontWeight: FontWeight.w700,
+                            fontSize: 15,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 3,
+                        ),
+                        Text(
+                          messageData.message,
+                          style: TextStyle(
+                            fontWeight: FontWeight.w200,
+                            fontSize: 11,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ),
+                      ],
+                    )),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(right: 13.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      height: 9,
+                    ),
+                    Text(
+                      messageData.dateMessege.toUpperCase(),
+                      style: TextStyle(
+                          fontSize: 13,
+                          letterSpacing: -0.2,
+                          fontWeight: FontWeight.w600,
+                          color: AppColors.textFaded),
+                    ),
+                    SizedBox(
+                      height: 7,
+                    ),
+                    Container(
+                      alignment: Alignment.center,
+                      height: 23,
+                      width: 23,
+                      decoration: BoxDecoration(
+                        color: AppColors.secondary,
+                        shape: BoxShape.circle,
+                      ),
+                      child: Text(
+                        "2",
+                        style:
+                            TextStyle(fontSize: 10, color: AppColors.textLight),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

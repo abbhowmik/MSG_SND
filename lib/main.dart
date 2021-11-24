@@ -31,6 +31,7 @@ class _MyAppState extends State<MyApp> {
               ),
             );
     });
+
     super.initState();
   }
 
@@ -40,7 +41,8 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       title: 'msg_snd',
       theme: AppTheme().light,
-      themeMode: ThemeMode.light,
+      darkTheme: AppTheme().dark,
+      themeMode: MyTheme().currentTheme(),
       home: const HomeScreen(),
     );
   }
