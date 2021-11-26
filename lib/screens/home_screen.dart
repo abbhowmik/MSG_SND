@@ -133,7 +133,7 @@ class _BottomNavigationBarState extends State<_BottomNavigationBar> {
                       index: 0,
                       onTap: handleSelected,
                       isSelected: (selectedIdx == 0),
-                      label: "Messaging",
+                      label: "Message",
                       icon: CupertinoIcons.bubble_left_bubble_right_fill,
                     ),
                     NavigationBarItem(
@@ -142,9 +142,8 @@ class _BottomNavigationBarState extends State<_BottomNavigationBar> {
                         isSelected: (selectedIdx == 1),
                         label: "Notification",
                         icon: CupertinoIcons.bell_solid),
-                    Padding(
-                      padding: const EdgeInsets.only(
-                          left: 11.0, right: 11.0, bottom: 1),
+                    Container(
+                      margin: EdgeInsets.only(left: 3, right: 3, bottom: 3),
                       child: GlowingActionButton(
                           icon: CupertinoIcons.plus,
                           color: Colors.blue,
@@ -195,7 +194,7 @@ class NavigationBarItem extends StatelessWidget {
       },
       child: SizedBox(
         height: 50,
-        width: 60,
+        width: 70,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -210,7 +209,7 @@ class NavigationBarItem extends StatelessWidget {
             Text(
               label,
               style: TextStyle(
-                  fontSize: 11, color: isSelected ? AppColors.secondary : null),
+                  fontSize: 9, color: isSelected ? AppColors.secondary : null),
             ),
           ],
         ),

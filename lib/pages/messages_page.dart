@@ -112,19 +112,19 @@ class _StoryCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(right: 29.0, top: 13),
+      padding: const EdgeInsets.only(right: 20.0, top: 13),
       child: Container(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            AvatarImg(url: storyData.url, radious: 23),
+            AvatarImg(url: storyData.url, radious: 28),
             SizedBox(
               height: 5,
             ),
             Expanded(
                 child: Text(
               trimName(storyData.name),
-              style: TextStyle(fontSize: 14),
+              style: TextStyle(fontSize: 10),
             )),
           ],
         ),
@@ -155,41 +155,36 @@ class MessageTile extends StatelessWidget {
           child: Row(
             children: [
               Padding(
-                padding: const EdgeInsets.all(10.0),
+                padding: const EdgeInsets.only(left: 19.0),
                 child: AvatarImg(url: Helpers.getRandomURL(), radious: 27),
               ),
               SizedBox(
-                width: 8,
+                width: 18,
               ),
               Expanded(
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Expanded(
-                        child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          messageData.senderName,
-                          style: TextStyle(
-                            fontWeight: FontWeight.w700,
-                            fontSize: 15,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                        ),
-                        SizedBox(
-                          height: 3,
-                        ),
-                        Text(
-                          messageData.message,
-                          style: TextStyle(
-                            fontWeight: FontWeight.w200,
-                            fontSize: 11,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                        ),
-                      ],
-                    )),
+                    Text(
+                      messageData.senderName,
+                      style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 13,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    Text(
+                      messageData.message,
+                      style: TextStyle(
+                        fontWeight: FontWeight.w200,
+                        fontSize: 9,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -205,7 +200,7 @@ class MessageTile extends StatelessWidget {
                     Text(
                       messageData.dateMessege.toUpperCase(),
                       style: TextStyle(
-                          fontSize: 13,
+                          fontSize: 10,
                           letterSpacing: -0.2,
                           fontWeight: FontWeight.w600,
                           color: AppColors.textFaded),
@@ -224,7 +219,7 @@ class MessageTile extends StatelessWidget {
                       child: Text(
                         "2",
                         style:
-                            TextStyle(fontSize: 10, color: AppColors.textLight),
+                            TextStyle(fontSize: 9, color: AppColors.textLight),
                       ),
                     ),
                   ],
